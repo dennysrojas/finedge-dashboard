@@ -74,15 +74,34 @@ export const Sidebar: React.FC<SidebarProps> = ({
     <aside
       className={`${
         isCollapsed ? 'w-20' : 'w-72'
-      } bg-white border-r border-mineral/40 text-slate-steel-900 flex flex-col h-screen sticky top-0 select-none z-40 transition-all duration-300 ease-in-out`}
+      } bg-white border-r border-mineral/40 text-slate-steel-900 flex flex-col h-screen sticky top-0 select-none z-40 transition-all duration-300 ease-in-out shrink-0`}
     >
       {/* Brand Header */}
-      <div className="p-4 border-b border-mineral/30 flex items-center justify-between bg-mineral-50/50">
-        <div className="flex items-center gap-3 overflow-hidden">
-          <div className="w-9 h-9 min-w-[36px] rounded-lg bg-slate-steel text-white flex items-center justify-center font-mono font-bold text-sm tracking-wider shadow-sm">
+      {isCollapsed ? (
+        <div className="py-3 px-2 border-b border-mineral/30 flex flex-col items-center gap-2 bg-mineral-50/50">
+          <button
+            onClick={onToggleCollapse}
+            className="w-10 h-10 rounded-xl bg-slate-steel text-white flex items-center justify-center font-mono font-bold text-sm tracking-wider shadow-sm hover:bg-slate-steel-dark transition-all cursor-pointer"
+            title="FINEDGE · PuntoOne (Clic para expandir)"
+            aria-label="Expandir barra lateral"
+          >
             FE
-          </div>
-          {!isCollapsed && (
+          </button>
+          <button
+            onClick={onToggleCollapse}
+            className="w-7 h-7 rounded-lg text-slate-steel/70 hover:text-slate-steel hover:bg-mineral-100 transition-colors flex items-center justify-center border border-mineral/40 bg-white shadow-2xs"
+            title="Expandir barra lateral"
+            aria-label="Expandir barra lateral"
+          >
+            <ChevronRight className="w-3.5 h-3.5" />
+          </button>
+        </div>
+      ) : (
+        <div className="p-4 border-b border-mineral/30 flex items-center justify-between bg-mineral-50/50">
+          <div className="flex items-center gap-3 overflow-hidden">
+            <div className="w-9 h-9 min-w-[36px] rounded-lg bg-slate-steel text-white flex items-center justify-center font-mono font-bold text-sm tracking-wider shadow-sm">
+              FE
+            </div>
             <div className="truncate">
               <span className="font-mono font-bold tracking-tight text-sm text-slate-steel block truncate">
                 FINEDGE
@@ -91,63 +110,110 @@ export const Sidebar: React.FC<SidebarProps> = ({
                 PuntoOne · Simulación Corbatul
               </span>
             </div>
-          )}
+          </div>
+          <button
+            onClick={onToggleCollapse}
+            className="p-1.5 rounded-lg text-slate-steel/60 hover:text-slate-steel hover:bg-mineral-100 transition-colors"
+            title="Colapsar barra lateral"
+            aria-label="Colapsar barra lateral"
+          >
+            <ChevronLeft className="w-4 h-4" />
+          </button>
         </div>
-        <button
-          onClick={onToggleCollapse}
-          className="p-1 rounded-md text-slate-steel/60 hover:text-slate-steel hover:bg-mineral-100 transition-colors"
-          title={isCollapsed ? 'Expandir barra' : 'Colapsar barra'}
-        >
-          {isCollapsed ? <ChevronRight className="w-4 h-4" /> : <ChevronLeft className="w-4 h-4" />}
-        </button>
-      </div>
+      )}
 
       {/* Period Selector */}
-      <div className="p-3 border-b border-mineral/30 bg-mineral-50/30">
-        {!isCollapsed && (
-          <div className="flex items-center justify-between mb-1.5 px-1 text-[10px] font-mono uppercase tracking-wider text-slate-steel/70 font-medium">
-            <span>Ronda:</span>
-            <span className="font-bold text-rosewood">
-              {selectedPeriod === 4 ? 'Cierre 2029' : `${2025 + selectedPeriod}`}
+      <div className={`border-b border-mineral/30 bg-mineral-50/30 ${isCollapsed ? 'py-2.5 px-2' : 'p-3'}`}>
+        {!isCollapsed ? (
+          <>
+            <div className="flex items-center justify-between mb-1.5 px-1 text-[10px] font-mono uppercase tracking-wider text-slate-steel/70 font-medium">
+              <span>Ronda:</span>
+              <span className="font-bold text-rosewood">
+                {selectedPeriod === 4 ? 'Cierre 2029' : `${2025 + selectedPeriod}`}
+              </span>
+            </div>
+            <div className="grid grid-cols-4 gap-1">
+              {dataset.periods.map(period => {
+                const isSelected = period === selectedPeriod;
+                return (
+                  <button
+                    key={period}
+                    onClick={() => onSelectPeriod(period)}
+                    className={`py-1.5 px-1 rounded-md text-center font-mono transition-all text-xs ${
+                      isSelected
+                        ? 'bg-slate-steel text-white font-semibold shadow-sm'
+                        : 'bg-mineral-100/60 text-slate-steel/80 hover:bg-mineral-200/60'
+                    }`}
+                  >
+                    <div className="text-[11px] font-semibold">P{period}</div>
+                    <div className="text-[9px] opacity-75">{2025 + period}</div>
+                  </button>
+                );
+              })}
+            </div>
+          </>
+        ) : (
+          <div className="flex flex-col items-center gap-1.5">
+            <span className="text-[9px] font-mono uppercase tracking-wider text-slate-steel/60 font-bold">
+              Ronda
             </span>
+            <div className="grid grid-cols-2 gap-1 w-full max-w-[56px]">
+              {dataset.periods.map(period => {
+                const isSelected = period === selectedPeriod;
+                return (
+                  <button
+                    key={period}
+                    onClick={() => onSelectPeriod(period)}
+                    title={`Ronda ${period} (${2025 + period})`}
+                    className={`h-7 rounded-md font-mono text-xs transition-all flex items-center justify-center ${
+                      isSelected
+                        ? 'bg-slate-steel text-white font-bold shadow-sm ring-1 ring-slate-steel/40'
+                        : 'bg-mineral-100/80 text-slate-steel/70 hover:bg-mineral-200 hover:text-slate-steel border border-mineral/30'
+                    }`}
+                  >
+                    P{period}
+                  </button>
+                );
+              })}
+            </div>
           </div>
         )}
-        <div className="grid grid-cols-4 gap-1">
-          {dataset.periods.map(period => {
-            const isSelected = period === selectedPeriod;
-            return (
-              <button
-                key={period}
-                onClick={() => onSelectPeriod(period)}
-                className={`py-1.5 px-1 rounded-md text-center font-mono transition-all text-xs ${
-                  isSelected
-                    ? 'bg-slate-steel text-white font-semibold shadow-sm'
-                    : 'bg-mineral-100/60 text-slate-steel/80 hover:bg-mineral-200/60'
-                }`}
-              >
-                <div className="text-[11px] font-semibold">P{period}</div>
-                <div className="text-[9px] opacity-75">{2025 + period}</div>
-              </button>
-            );
-          })}
-        </div>
       </div>
 
       {/* Nav Menu */}
-      <nav className="flex-1 p-3 space-y-1 overflow-y-auto">
+      <nav className={`flex-1 overflow-y-auto ${isCollapsed ? 'p-2 space-y-2' : 'p-3 space-y-1'}`}>
         {menuItems.map(item => {
           const isActive = activeTab === item.id;
           return (
             <button
               key={item.id}
               onClick={() => onSelectTab(item.id)}
-              className={`w-full flex items-center gap-3 px-3 py-2.5 rounded-lg text-left transition-all ${
-                isActive
-                  ? 'bg-mineral-100/90 text-slate-steel font-semibold border-l-2 border-rosewood'
-                  : 'text-slate-steel/70 hover:bg-mineral-50 hover:text-slate-steel'
+              title={isCollapsed ? `${item.label} · ${item.sublabel}` : undefined}
+              className={`rounded-xl transition-all ${
+                isCollapsed
+                  ? `w-11 h-11 mx-auto flex items-center justify-center ${
+                      isActive
+                        ? 'bg-rosewood text-white shadow-sm ring-2 ring-rosewood/30'
+                        : 'text-slate-steel/70 hover:bg-mineral-100 hover:text-slate-steel'
+                    }`
+                  : `w-full flex items-center gap-3 px-3 py-2.5 text-left ${
+                      isActive
+                        ? 'bg-mineral-100/90 text-slate-steel font-semibold border-l-2 border-rosewood'
+                        : 'text-slate-steel/70 hover:bg-mineral-50 hover:text-slate-steel'
+                    }`
               }`}
             >
-              <div className={`${isActive ? 'text-rosewood' : 'text-slate-steel/60'}`}>
+              <div
+                className={`shrink-0 ${
+                  isCollapsed
+                    ? isActive
+                      ? 'text-white'
+                      : 'text-slate-steel'
+                    : isActive
+                    ? 'text-rosewood'
+                    : 'text-slate-steel/60'
+                }`}
+              >
                 {item.icon}
               </div>
               {!isCollapsed && (
@@ -164,7 +230,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
       </nav>
 
       {/* Bottom KPI Card */}
-      {!isCollapsed && (
+      {!isCollapsed ? (
         <div className="p-3 border-t border-mineral/30 bg-mineral-50/50">
           <div className="p-3 rounded-xl bg-white border border-mineral/50 shadow-minimal">
             <div className="flex items-center justify-between text-xs font-mono mb-1">
@@ -187,6 +253,21 @@ export const Sidebar: React.FC<SidebarProps> = ({
                 {scorecard.grossMargin.toFixed(1)}%
               </span>
             </div>
+          </div>
+        </div>
+      ) : (
+        <div
+          className="p-2.5 border-t border-mineral/30 bg-mineral-50/50 flex flex-col items-center justify-center text-center cursor-default group"
+          title={`Valor Firma: ${scorecard.sharePrice.toFixed(1)} pts · Posición: #${scorecard.rankBySharePrice} de 7 · Margen Bruto: ${scorecard.grossMargin.toFixed(1)}%`}
+        >
+          <div className="w-8 h-8 rounded-lg bg-white border border-mineral/40 flex items-center justify-center text-rosewood shadow-2xs group-hover:border-rosewood/40 transition-colors">
+            <Award className="w-3.5 h-3.5 text-rosewood" />
+          </div>
+          <div className="text-[10px] font-mono font-bold text-slate-steel mt-1 leading-none">
+            #{scorecard.rankBySharePrice}
+          </div>
+          <div className="text-[9px] font-mono text-slate-steel/60 mt-0.5 leading-none">
+            {scorecard.sharePrice.toFixed(0)}p
           </div>
         </div>
       )}
