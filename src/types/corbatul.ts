@@ -151,6 +151,7 @@ export interface CompanyFinancials {
     totalAssets: number;
     shortTermDebt: number;
     accountsPayable: number;
+    currentLiabilities?: number;
     longTermDebt: number;
     totalLiabilities: number;
     shareholdersEquity: number;

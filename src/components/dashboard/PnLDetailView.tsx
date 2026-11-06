@@ -236,7 +236,7 @@ export const PnLDetailView: React.FC<PnLDetailViewProps> = ({
           <div className="p-4 rounded-xl bg-mineral-50/60 border border-mineral/30">
             <span className="text-[10px] uppercase font-mono text-slate-steel/60 block">Pasivo Corriente</span>
             <div className="text-lg font-mono font-bold text-slate-steel mt-1 tabular-nums">
-              {formatCurrency(currentFin.balanceSheet.shortTermDebt + currentFin.balanceSheet.accountsPayable)}
+              {formatCurrency(currentFin.balanceSheet.currentLiabilities ?? (currentFin.balanceSheet.shortTermDebt + currentFin.balanceSheet.accountsPayable))}
             </div>
             <span className="text-[10px] text-slate-steel/60 font-mono">Proveedores + Préstamo CP</span>
           </div>
