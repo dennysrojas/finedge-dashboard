@@ -121,7 +121,9 @@ export const OperationsInventoryView: React.FC<OperationsInventoryViewProps> = (
           <div className="p-4 rounded-xl bg-mineral-50/60 border border-mineral/30 space-y-3">
             <div className="flex justify-between items-center text-xs font-mono font-bold border-b border-mineral/30 pb-2">
               <span className="text-slate-steel">👔 Corbatas</span>
-              <span className="text-slate-steel/70">{selectedPeriod === 4 ? '100% Ocupación' : '95% Ocupación'}</span>
+              <span className="text-slate-steel/70">
+                {selectedPeriod === 4 ? '100% Ocupación' : selectedPeriod === 3 ? '100% Ocupación' : selectedPeriod === 2 ? '94.0% Ocupación' : '95.3% Ocupación'}
+              </span>
             </div>
             <div className="space-y-1.5 text-xs font-mono">
               <div className="flex justify-between text-slate-steel/70">
@@ -130,7 +132,7 @@ export const OperationsInventoryView: React.FC<OperationsInventoryViewProps> = (
               </div>
               <div className="flex justify-between text-slate-steel/70">
                 <span>Producción Real:</span>
-                <span className="text-slate-steel font-bold">{selectedPeriod === 4 ? '235,000 uds' : '205,000 uds'}</span>
+                <span className="text-slate-steel font-bold">{formatUnits(currentDec.productionOrdersStandard)}</span>
               </div>
               <div className="flex justify-between text-slate-steel/70">
                 <span>Ventas Concretadas:</span>
@@ -152,11 +154,11 @@ export const OperationsInventoryView: React.FC<OperationsInventoryViewProps> = (
             <div className="space-y-1.5 text-xs font-mono">
               <div className="flex justify-between text-slate-steel/70">
                 <span>Capacidad Planta:</span>
-                <span className="text-slate-steel font-medium">{selectedPeriod === 4 ? '55,000 uds' : selectedPeriod >= 2 ? '38,000 uds' : '30,000 uds'}</span>
+                <span className="text-slate-steel font-medium">{selectedPeriod === 4 ? '55,000 uds' : selectedPeriod >= 3 ? '38,000 uds' : '30,000 uds'}</span>
               </div>
               <div className="flex justify-between text-slate-steel/70">
                 <span>Producción Real:</span>
-                <span className="text-rosewood font-bold">{selectedPeriod === 4 ? '55,000 uds' : selectedPeriod >= 2 ? '38,000 uds' : '29,000 uds'}</span>
+                <span className="text-rosewood font-bold">{formatUnits(currentDec.productionOrdersPremium)}</span>
               </div>
               <div className="flex justify-between text-slate-steel/70">
                 <span>Ventas Concretadas:</span>
@@ -173,7 +175,9 @@ export const OperationsInventoryView: React.FC<OperationsInventoryViewProps> = (
           <div className="p-4 rounded-xl bg-mineral-50/60 border border-mineral/30 space-y-3">
             <div className="flex justify-between items-center text-xs font-mono font-bold border-b border-mineral/30 pb-2">
               <span className="text-slate-steel">🧦 Calcetines</span>
-              <span className="text-slate-steel/70">{selectedPeriod === 4 ? '75% Ocupación' : '83% Ocupación'}</span>
+              <span className="text-slate-steel/70">
+                {selectedPeriod === 4 ? '75% Ocupación' : selectedPeriod === 3 ? '70% Ocupación' : selectedPeriod === 2 ? '37.5% Ocupación' : '82.5% Ocupación'}
+              </span>
             </div>
             <div className="space-y-1.5 text-xs font-mono">
               <div className="flex justify-between text-slate-steel/70">
@@ -182,7 +186,7 @@ export const OperationsInventoryView: React.FC<OperationsInventoryViewProps> = (
               </div>
               <div className="flex justify-between text-slate-steel/70">
                 <span>Producción Real:</span>
-                <span className="text-slate-steel font-bold">{selectedPeriod === 4 ? '75,000 uds' : selectedPeriod === 3 ? '35,000 uds' : '33,000 uds'}</span>
+                <span className="text-slate-steel font-bold">{formatUnits(currentDec.productionOrdersSocks)}</span>
               </div>
               <div className="flex justify-between text-slate-steel/70">
                 <span>Ventas Concretadas:</span>

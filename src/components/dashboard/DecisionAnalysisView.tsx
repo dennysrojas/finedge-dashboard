@@ -333,7 +333,7 @@ export const DecisionAnalysisView: React.FC<DecisionAnalysisViewProps> = ({
                     </div>
                     <div className="p-2 rounded-lg bg-mineral-50/70 border border-mineral/30 flex justify-between items-center">
                       <span className="text-slate-steel/70">Órdenes Calcetines</span>
-                      <strong className="text-slate-steel">{currentStory.decisions.production.ordersSocks?.toLocaleString() || '33,000'}</strong>
+                      <strong className="text-slate-steel">{(currentStory.decisions.production.ordersSocks ?? 0).toLocaleString()}</strong>
                     </div>
                   </div>
                 </div>
