@@ -9,6 +9,7 @@ import { ExecutiveSummaryView } from '../components/dashboard/ExecutiveSummaryVi
 import { PnLDetailView } from '../components/dashboard/PnLDetailView';
 import { OperationsInventoryView } from '../components/dashboard/OperationsInventoryView';
 import { CompetitorBenchmarkingView } from '../components/dashboard/CompetitorBenchmarkingView';
+import { ManagementReportView } from '../components/dashboard/ManagementReportView';
 import { Award, Compass, BarChart3, FileSpreadsheet, Layers, Target, ChevronRight } from 'lucide-react';
 
 export default function FinedgeDashboardPage() {
@@ -42,6 +43,11 @@ export default function FinedgeDashboardPage() {
       icon: <Target className="w-5 h-5 text-rosewood" />,
       title: 'Radar de Mercado y Competidores',
       subtitle: 'Benchmarking Multidimensional de la Industria (7 Firmas)',
+    },
+    report: {
+      icon: <Award className="w-5 h-5 text-rosewood" />,
+      title: 'Informe de Gestión · Presentación Adaptada',
+      subtitle: 'FinEdge × CORBATUL · Diagnóstico, Roles, Dirección Estratégica & Plan Operativo',
     },
   };
 
@@ -142,6 +148,10 @@ export default function FinedgeDashboardPage() {
               dataset={dataset}
               selectedPeriod={selectedPeriod}
             />
+          )}
+
+          {activeTab === 'report' && (
+            <ManagementReportView />
           )}
         </main>
       </div>
