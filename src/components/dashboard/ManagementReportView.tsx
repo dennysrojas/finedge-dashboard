@@ -273,6 +273,9 @@ export const ManagementReportView: React.FC = () => {
               <span className="px-3 py-1 rounded-full text-xs font-mono font-bold bg-rosewood-light text-rosewood border border-rosewood-200">
                 Punto de Partida: 2025
               </span>
+              <span className="px-3 py-1 rounded-full text-xs font-mono font-bold bg-mineral-100 text-slate-steel border border-mineral/40">
+                Moneda: € (Euros · España)
+              </span>
             </div>
 
             <h1 className="text-2xl sm:text-3xl lg:text-4xl font-serif font-black text-slate-steel-900 tracking-tight">
@@ -490,7 +493,7 @@ export const ManagementReportView: React.FC = () => {
               <div className="mt-2.5 pt-2 border-t border-mineral/20 flex flex-wrap items-center gap-2 text-[10px] font-mono text-slate-steel/70">
                 <span className="bg-white px-2 py-0.5 rounded border border-mineral/30">Margen 32,5%</span>
                 <span className="bg-white px-2 py-0.5 rounded border border-mineral/30">ROE −2,6%</span>
-                <span className="bg-white px-2 py-0.5 rounded border border-mineral/30">Ingresos $3,35M</span>
+                <span className="bg-white px-2 py-0.5 rounded border border-mineral/30">Ingresos 3,35 M€</span>
               </div>
             </div>
 
@@ -527,7 +530,7 @@ export const ManagementReportView: React.FC = () => {
               <div className="mt-2.5 pt-2 border-t border-mineral/20 flex flex-wrap items-center gap-2 text-[10px] font-mono text-slate-steel/70">
                 <span className="bg-white px-2 py-0.5 rounded border border-mineral/30">Cobertura 57% → 72%</span>
                 <span className="bg-white px-2 py-0.5 rounded border border-mineral/30">Marca 36 → 45</span>
-                <span className="bg-white px-2 py-0.5 rounded border border-mineral/30">Ventas $3,76M</span>
+                <span className="bg-white px-2 py-0.5 rounded border border-mineral/30">Ventas 3,76 M€</span>
               </div>
             </div>
 
@@ -619,7 +622,7 @@ export const ManagementReportView: React.FC = () => {
               <TrendingDown className="w-4 h-4" />
               <span>Presión en Costos y ROE</span>
             </div>
-            <h4 className="text-sm font-bold text-slate-steel-900">Ingresos $3,35M pero ROE Negativo</h4>
+            <h4 className="text-sm font-bold text-slate-steel-900">Ingresos 3,35 M€ pero ROE Negativo</h4>
             <p className="text-xs text-slate-steel/80 leading-relaxed">
               El diagnóstico de 2025 muestra ingresos crecientes pero fuerte presión en costo de ventas y rentabilidad insuficiente: <strong>ROE de −2,6%</strong> (meta) / <strong>−3,1%</strong> (narrativa).
             </p>
@@ -654,7 +657,7 @@ export const ManagementReportView: React.FC = () => {
               <li className="flex items-start gap-2">
                 <CheckCircle2 className="w-3.5 h-3.5 text-rosewood shrink-0 mt-0.5" />
                 <span>
-                  <strong>Ingresos iniciales:</strong> $3.346.747 con un <strong>Margen sobre ingresos del 32,5%</strong>.
+                  <strong>Ingresos iniciales:</strong> 3.346.747 € con un <strong>Margen sobre ingresos del 32,5%</strong>.
                 </span>
               </li>
               <li className="flex items-start gap-2">
@@ -761,7 +764,7 @@ export const ManagementReportView: React.FC = () => {
 
           <div className="p-4 rounded-2xl bg-white border border-mineral/40 shadow-2xs">
             <span className="text-[10px] font-mono uppercase tracking-wider text-slate-steel/60 block">Ingresos Totales</span>
-            <div className="text-2xl font-black text-slate-steel-900 mt-1">$3.346.747</div>
+            <div className="text-2xl font-black text-slate-steel-900 mt-1">3.346.747 €</div>
             <span className="text-[11px] text-slate-steel/70 mt-0.5 block">Ventas brutas CORBATUL</span>
           </div>
 
@@ -796,8 +799,8 @@ export const ManagementReportView: React.FC = () => {
               </tr>
               <tr className="bg-mineral-50/30">
                 <td className="py-2.5 px-4 font-medium">Ingresos de explotación</td>
-                <td className="py-2.5 px-4 font-mono font-bold text-slate-steel">$3.346.747</td>
-                <td className="py-2.5 px-4 text-slate-steel/70">Base de facturación a expandir hacia $3,76M</td>
+                <td className="py-2.5 px-4 font-mono font-bold text-slate-steel">3.346.747 €</td>
+                <td className="py-2.5 px-4 text-slate-steel/70">Base de facturación a expandir hacia 3,76 M€</td>
               </tr>
               <tr>
                 <td className="py-2.5 px-4 font-medium">Rentabilidad sobre patrimonio (ROE)</td>
@@ -987,7 +990,7 @@ export const ManagementReportView: React.FC = () => {
               <span>Base Económica y Comercial</span>
             </h4>
             <p className="text-xs text-slate-steel/80 leading-relaxed">
-              Ventas de <strong>$3.346.747</strong> con margen del <strong>32,5%</strong>. La línea de corbatas aporta el 80% de ingresos y 84% de margen. Red de distribución con cobertura del <strong>57%</strong> y diseño de <strong>7,1/10</strong> como palancas para diferenciar la oferta.
+              Ventas de <strong>3.346.747 €</strong> con margen del <strong>32,5%</strong>. La línea de corbatas aporta el 80% de ingresos y 84% de margen. Red de distribución con cobertura del <strong>57%</strong> y diseño de <strong>7,1/10</strong> como palancas para diferenciar la oferta.
             </p>
           </div>
 
@@ -1032,9 +1035,9 @@ export const ManagementReportView: React.FC = () => {
                 </tr>
                 <tr className="bg-mineral-50/30">
                   <td className="py-2.5 px-4 font-bold">Ingresos de explotación</td>
-                  <td className="py-2.5 px-4 font-mono">$3.346.747</td>
-                  <td className="py-2.5 px-4 font-mono font-bold text-slate-steel">$3.764.000</td>
-                  <td className="py-2.5 px-4 font-mono font-bold text-emerald-600">+$417.253</td>
+                  <td className="py-2.5 px-4 font-mono">3.346.747 €</td>
+                  <td className="py-2.5 px-4 font-mono font-bold text-slate-steel">3.764.000 €</td>
+                  <td className="py-2.5 px-4 font-mono font-bold text-emerald-600">+417.253 €</td>
                   <td className="py-2.5 px-4 text-slate-steel/70">Expansión de cobertura comercial y ventas en línea</td>
                 </tr>
                 <tr>
@@ -1144,10 +1147,10 @@ export const ManagementReportView: React.FC = () => {
               </tr>
               <tr className="bg-mineral-50/30">
                 <td className="py-3 px-4 text-left font-bold">Ingresos de explotación</td>
-                <td className="py-3 px-4 font-mono font-semibold bg-mineral-100/30">$3.346.747</td>
-                <td className="py-3 px-4 font-mono">$3.447.000</td>
-                <td className="py-3 px-4 font-mono">$3.585.000</td>
-                <td className="py-3 px-4 font-mono font-bold text-slate-steel bg-blush-100/30">$3.764.000</td>
+                <td className="py-3 px-4 font-mono font-semibold bg-mineral-100/30">3.346.747 €</td>
+                <td className="py-3 px-4 font-mono">3.447.000 €</td>
+                <td className="py-3 px-4 font-mono">3.585.000 €</td>
+                <td className="py-3 px-4 font-mono font-bold text-slate-steel bg-blush-100/30">3.764.000 €</td>
               </tr>
               <tr>
                 <td className="py-3 px-4 text-left font-bold">Rentabilidad sobre patrimonio (ROE)</td>
@@ -1349,7 +1352,7 @@ export const ManagementReportView: React.FC = () => {
                 Revisar costes y precios paramétricos, definir mezcla rentable, ordenar existencias y ajustar políticas de cobranza inmediata.
               </p>
               <div className="text-[11px] font-mono text-slate-steel/70 pt-1 border-t border-rosewood-200">
-                Metas: Margen 33,5% · Ventas $3,45M · ROE −1,5% · Cobertura 62%
+                Metas: Margen 33,5% · Ventas 3,45 M€ · ROE −1,5% · Cobertura 62%
               </div>
             </div>
 
@@ -1364,7 +1367,7 @@ export const ManagementReportView: React.FC = () => {
                 Ampliar canales eficientes, profundizar mejoras productivas en telar y controlar rigurosamente el retorno promocional.
               </p>
               <div className="text-[11px] font-mono text-slate-steel/70 pt-1 border-t border-slate-steel-200">
-                Metas: Margen 34,5% · Ventas $3,58M · ROE 0,0% · Cobertura 67%
+                Metas: Margen 34,5% · Ventas 3,58 M€ · ROE 0,0% · Cobertura 67%
               </div>
             </div>
 
@@ -1379,7 +1382,7 @@ export const ManagementReportView: React.FC = () => {
                 Consolidar beneficio neto, productividad industrial y marca; evaluar inversiones de modernización con flujos de caja reales.
               </p>
               <div className="text-[11px] font-mono text-slate-steel/70 pt-1 border-t border-emerald-300">
-                Metas: Margen 35,5% · Ventas $3,76M · ROE +2,0% · Cobertura 72%
+                Metas: Margen 35,5% · Ventas 3,76 M€ · ROE +2,0% · Cobertura 72%
               </div>
             </div>
           </div>
