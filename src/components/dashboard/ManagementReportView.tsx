@@ -255,7 +255,7 @@ export const ManagementReportView: React.FC = () => {
   };
 
   return (
-    <div className="space-y-8 max-w-7xl mx-auto pb-16 animate-fadeIn text-slate-steel">
+    <div className="space-y-8 w-full pb-16 animate-fadeIn text-slate-steel">
       
       {/* ========================================================
           0. HERO HEADER INSTITUCIONAL: TORNEO & INSTITUCIÓN
@@ -268,7 +268,7 @@ export const ManagementReportView: React.FC = () => {
                 8.º Torneo Internacional de Simulación · ACBSP & CompanyGame
               </span>
               <span className="px-3 py-1 rounded-full text-xs font-mono font-medium bg-mineral-100 text-slate-steel-dark border border-mineral/30">
-                Informe de Gestión Oficial · FinEdge × CORBATUL
+                Informe de Gestión Oficial · Empresa "CORBATUL" - Grupo FinEdge
               </span>
               <span className="px-3 py-1 rounded-full text-xs font-mono font-bold bg-rosewood-light text-rosewood border border-rosewood-200">
                 Punto de Partida: 2025
@@ -279,7 +279,7 @@ export const ManagementReportView: React.FC = () => {
             </div>
 
             <h1 className="text-2xl sm:text-3xl lg:text-4xl font-serif font-black text-slate-steel-900 tracking-tight">
-              Presentación Adaptada · Equipo FinEdge
+              Informe de Gestión - Empresa "CORBATUL" - Grupo FinEdge
             </h1>
             
             <p className="text-xs sm:text-sm text-slate-steel/80 max-w-3xl leading-relaxed">
@@ -356,7 +356,7 @@ export const ManagementReportView: React.FC = () => {
             </div>
           </div>
           <span className="text-[11px] font-mono font-bold text-slate-steel bg-mineral-100 px-3 py-1 rounded-full border border-mineral/30">
-            Equipo: FinEdge · Compañía: CORBATUL
+            Empresa: "CORBATUL" · Grupo: FinEdge
           </span>
         </div>
 

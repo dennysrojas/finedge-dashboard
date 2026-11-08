@@ -46,7 +46,7 @@ export default function FinedgeDashboardPage() {
     },
     report: {
       icon: <Award className="w-5 h-5 text-rosewood" />,
-      title: 'Informe de Gestión · Presentación Adaptada',
+      title: 'Informe de Gestión - Empresa "CORBATUL" - Grupo FinEdge',
       subtitle: 'FinEdge × CORBATUL · Diagnóstico, Roles, Dirección Estratégica & Plan Operativo',
     },
   };

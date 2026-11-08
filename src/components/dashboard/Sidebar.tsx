@@ -71,7 +71,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
     {
       id: 'report',
       label: 'Informe de Gestión',
-      sublabel: 'Presentación Adaptada FinEdge',
+      sublabel: 'Empresa "CORBATUL" - Grupo FinEdge',
       icon: <Award className="w-4 h-4" />,
     },
   ];
